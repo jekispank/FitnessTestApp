@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">FitnessTestApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="schedule">Расписание</string>
+    <string name="example_date">среда, 11 января</string>
+    <string name="strength_training">Силовая тренировка</string>
+    <string name="example_duration">1ч.15мин.</string>
+    <string name="example_couch_name">Григорьев Ярослав</string>
+    <string name="example_location">Функциональная зона Олимпия Спорт</string>
+    <string name="lessons">Занятия</string>
+    <string name="requests">Заявки</string>
+    <string name="add">Добавить</string>
+    <string name="chat">Чат</string>
+    <string name="more">Ещё</string>
+</resources>

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fitnesstestapp.R
 import com.example.fitnesstestapp.databinding.FragmentTrainingListBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -37,9 +36,6 @@ class TrainingListFragment : Fragment() {
 
             adapter = DateListAdapter(it)
             recyclerView.adapter = adapter
-
-
-
         }
 
     }

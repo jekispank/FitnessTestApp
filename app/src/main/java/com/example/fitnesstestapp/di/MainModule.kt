@@ -35,7 +35,7 @@ val mainModule = module {
     single {
         GetListOfDayUseCase(repository = get())
     }
-    viewModel{
+    viewModel {
         TrainingListViewModel(
             getListOfDayUseCase = get()
         )

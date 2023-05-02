@@ -46,7 +46,8 @@ class DateListAdapter(trainingModel: TrainingModel?) :
     override fun onBindViewHolder(holder: DayListHolder, position: Int) {
         val lessonDate = dayList?.get(position)
 
-        trainingListAdapter = trainingList?.get(lessonDate)?.let { TrainingListAdapter(it, trainerList) }!!
+        trainingListAdapter =
+            trainingList?.get(lessonDate)?.let { TrainingListAdapter(it, trainerList) }!!
         recyclerView = holder.rvTrainingList
 
         holder.apply {

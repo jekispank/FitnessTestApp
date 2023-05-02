@@ -9,7 +9,7 @@ import com.example.fitnesstestapp.domain.GetListOfDayUseCase
 import com.example.fitnesstestapp.domain.model.TrainingModel
 import kotlinx.coroutines.launch
 
-class TrainingListViewModel(private val getListOfDayUseCase: GetListOfDayUseCase): ViewModel() {
+class TrainingListViewModel(private val getListOfDayUseCase: GetListOfDayUseCase) : ViewModel() {
 
 
     private var _listOfDay = MutableLiveData<TrainingModel?>()
@@ -17,14 +17,12 @@ class TrainingListViewModel(private val getListOfDayUseCase: GetListOfDayUseCase
 
     fun getListOfDay() {
         viewModelScope.launch {
-//            try {
+            try {
                 val result = getListOfDayUseCase.getListOfDayUseCase()
                 _listOfDay.value = result
-                Log.d("TrainingListViewModel", "RESPONSE is $")
-//            }
-//            catch (e: Exception) {
-//                Log.d("Exception", "Something wrooong")
-//            }
+            } catch (e: Exception) {
+                Log.d("Exception", "Something wrong")
+            }
         }
     }
 }

@@ -5,12 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:background="@drawable/item_shape"
-    android:elevation="5dp">
+    android:background="@drawable/item_shape">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/line"
-        android:layout_width="10dp"
+        android:layout_width="8dp"
         android:layout_height="0dp"
         android:background="@drawable/line_shape"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,15 +41,17 @@
 
     <TextView
         android:id="@+id/tv_training_name"
-        android:layout_width="220dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/inter_medium"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_training_start_time"
+        app:layout_constraintBottom_toTopOf="@id/tv_count_of_sportsmen"
         app:layout_constraintStart_toEndOf="@+id/tv_training_start_time"
-        app:layout_constraintTop_toTopOf="@+id/tv_training_start_time"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:text="@string/strength_training" />
 
     <TextView
@@ -58,12 +59,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
         android:fontFamily="@font/inter_medium"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_training_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_training_name"
+        app:layout_constraintStart_toEndOf="@+id/tv_training_name"
+        app:layout_constraintTop_toTopOf="@id/tv_training_name"
         tools:text="@string/example_duration" />
 
     <ImageView
@@ -79,8 +82,11 @@
         android:id="@+id/tv_count_of_sportsmen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_person_icon"
         app:layout_constraintStart_toEndOf="@+id/tv_person_icon"
+        app:layout_constraintTop_toTopOf="@+id/tv_person_icon"
         tools:text="@string/example_couch_name" />
 
     <ImageView
@@ -89,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_count_of_sportsmen"
-        app:layout_constraintEnd_toStartOf="@id/tv_location"
+        app:layout_constraintEnd_toStartOf="@+id/tv_training_duration"
         app:layout_constraintStart_toEndOf="@+id/tv_count_of_sportsmen"
         app:srcCompat="@drawable/ic_location" />
 
@@ -100,6 +106,7 @@
         android:layout_margin="5dp"
         android:foregroundGravity="right"
         android:gravity="end"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_count_of_sportsmen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/location_label"

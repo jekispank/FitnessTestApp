@@ -13,17 +13,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnesstestapp.R
 import com.example.fitnesstestapp.domain.model.LessonModel
 import com.example.fitnesstestapp.domain.model.TrainerModel
-import com.example.fitnesstestapp.domain.model.TrainingModel
 import java.time.Duration
 import java.time.LocalTime
 import kotlin.time.toKotlinDuration
 
-class TrainingListAdapter(private var lessonList: List<LessonModel>, private val trainerList: List<TrainerModel>?) :
+class TrainingListAdapter(
+    private var lessonList: List<LessonModel>,
+    private val trainerList: List<TrainerModel>?
+) :
     RecyclerView.Adapter<TrainingListAdapter.TrainingListHolder>() {
-
-    init {
-        Log.d("SOLUTION", "Trainer list is $trainerList")
-    }
 
     class TrainingListHolder(trainingView: View) : RecyclerView.ViewHolder(trainingView) {
         val colorLine = trainingView.findViewById<ImageView>(R.id.line)
@@ -55,7 +53,7 @@ class TrainingListAdapter(private var lessonList: List<LessonModel>, private val
             finishTime.text = lesson.endTime
             trainingName.text = lesson.trainingName
             trainingDuration.text = setLessonDuration(lesson.startTime, lesson.endTime)
-            countOfSportsmen.text = lesson.coachName
+            countOfSportsmen.text = setTrainerName(lesson.coachName)
             place.text = lesson.place
             if (lesson.trainingName == "Персональная тренировка") {
                 personIcon.setImageResource(R.drawable.ic_person)
@@ -67,15 +65,25 @@ class TrainingListAdapter(private var lessonList: List<LessonModel>, private val
         return lessonList.size
     }
 
+    private fun setTrainerName(coachName: String): String {
+        return if (coachName.isEmpty()) ""
+        else "${trainerList?.first { it.id == coachName }?.full_name}"
+    }
+
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun setLessonDuration(startTime: String, endTime: String): String{
+    private fun setLessonDuration(startTime: String, endTime: String): String {
 
         val start = LocalTime.parse(startTime)
         val finish = LocalTime.parse(endTime)
         val newDate = Duration.between(start, finish).toKotlinDuration()
-        return if (newDate.inWholeHours.toInt() == 0) "${newDate.inWholeMinutes}мин."
-        else "${newDate.inWholeHours}ч.${newDate.inWholeMinutes.toInt() - 60}мин."
 
+        var time = if (newDate.inWholeMinutes.toInt() > 60) {
+            "${newDate.inWholeMinutes.toInt() / 60}ч.${newDate.inWholeMinutes.toInt() - 60}мин."
+        } else if (newDate.inWholeMinutes.toInt()%60 == 0) {
+            "${newDate.inWholeHours}ч."
+        } else "${newDate.inWholeMinutes}мин."
+
+        return time
     }
 }

@@ -17,3 +17,7 @@ https://olimpia.fitnesskit-admin.ru/schedule/get_v3/?club_id=2
 Срок выполнения — 2 дня, код должен быть выложен на github.
 Стек: Kotlin, MVVM (MVP по желанию). В остальном ограничений нет.
 Удачи!
+
+Result screen
+![Screenshot_1686001708](https://github.com/jekispank/FitnessTestApp/assets/112154261/cd1f557a-b968-4222-8582-6e5b1022b922)
+
